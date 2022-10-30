@@ -1,0 +1,19 @@
+.login-form {
+    width: 20rem;
+    max-width: 90%;
+    margin: auto;
+    display: block;
+}
+.error-msg {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.center {
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+}
+.invalid {
+    border-color: red !important;
+}

@@ -1,0 +1,31 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <div class="center">
+            <p>Log in</p>
+         </div>
+        <form class="login-form" action="/login" method="POST">
+            <div class="form-control">
+                <label for="email">email</label>
+                <input class="<%= validationStyles.includes('email') ? 'invalid' : '' %>" type="email" name="email" id="email" value="<%= values.email %>" >
+            </div>
+            <div class="form-control">
+                <label for="password">password</label>
+                <input class="<%= validationStyles.includes('password') ? 'invalid' : '' %>" type="password" name="password" id="password" value="<%= values.password %>" >
+                <!-- if we write type password,we can not see pasword in the input,but we will see *** -->
+            </div>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>"  />
+            <% if(errorMesage) { %> <div class="error-msg"><%= errorMesage %></div> <% } %>
+            <button class="btn" type="submit">Login</button>
+        </form>
+        <div class="center">
+       <a href="/passwordReset"><p>Reset pasword</p></a> 
+    </div>
+    </main>
+<%- include('../includes/end.ejs') %>

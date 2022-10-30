@@ -1,0 +1,31 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <div class="center">
+            <p>Reset pasword</p>
+         </div>
+        <form class="login-form" action="/passwordReset" method="POST">
+            <div class="form-control">
+                <label for="email">email</label>
+                <input type="email" name="email" id="email">
+            </div>
+            <!-- <div class="form-control">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <div class="form-control">
+                <label for="newPassword">New Password</label>
+                <input type="password" name="newPassword" id="newPassword">
+            </div> -->
+            <% if(errorMesage) { %> <div class="error-msg"><%= errorMesage %></div> <% } %>
+            <button class="btn" type="submit">reset</button>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>"  />
+        </form>
+    </main>
+<%- include('../includes/end.ejs') %>
